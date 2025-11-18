@@ -16,15 +16,15 @@
   <header class="site-header">
     <div class="container nav-inner">
       <a href="#top" class="brand">
-        <!-- logo + scritta di Leonardo -->
         <img src="assets/images/logo-rentigo.png" alt="Rentigo logo" class="brand-logo">
       </a>
 
       <nav class="nav">
-        <a href="#features" class="nav-link">Funzionalità</a>
-        <a href="#how-it-works" class="nav-link">Come funziona</a>
-        <a href="#pricing" class="nav-link">Prezzi</a>
-        <a href="#contact" class="nav-link nav-cta">Contattaci</a>
+        <div class="nav-highlight"></div>
+        <a href="#features" class="nav-link" data-section="features">Funzionalità</a>
+        <a href="#how-it-works" class="nav-link" data-section="how-it-works">Come funziona</a>
+        <a href="#pricing" class="nav-link" data-section="pricing">Prezzi</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contattaci</a>
       </nav>
     </div>
   </header>
@@ -53,7 +53,7 @@
           </p>
         </div>
 
-        <!-- MOCKUP APP (placeholder, più avanti lo sostituirai con screenshot reale) -->
+        <!-- MOCKUP APP -->
         <div class="hero-mockups" data-reveal>
           <!-- Telefono principale -->
           <div class="phone phone-main">
@@ -272,25 +272,79 @@
     // anno nel footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // animazione on scroll (fade + slide up)
+    // reveal on scroll
     const revealEls = document.querySelectorAll('[data-reveal]');
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
 
-    revealEls.forEach((el) => observer.observe(el));
+    revealEls.forEach((el) => revealObserver.observe(el));
 
     // parallax semplice sull'onda verde dell'hero
     const heroBg = document.querySelector('.hero-bg');
     window.addEventListener('scroll', () => {
-      const offset = window.scrollY * -0.08; // spostamento leggero
+      const offset = window.scrollY * -0.08;
       heroBg.style.setProperty('--hero-offset', offset + 'px');
     }, { passive: true });
+
+    // bolla del menu
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navHighlight = document.querySelector('.nav-highlight');
+    let activeNavLink = null;
+
+    function moveHighlight(link) {
+      if (!nav || !navHighlight || !link) return;
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const left = linkRect.left - navRect.left;
+      const width = linkRect.width;
+
+      navHighlight.style.left = left + 'px';
+      navHighlight.style.width = width + 'px';
+      navHighlight.style.opacity = 1;
+
+      navLinks.forEach(l => l.classList.toggle('is-active', l === link));
+      activeNavLink = link;
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        moveHighlight(link);
+      });
+    });
+
+    // evidenziazione automatica in base alla sezione visibile
+    const sectionIds = ['features', 'how-it-works', 'pricing', 'contact'];
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      let bestEntry = null;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
+            bestEntry = entry;
+          }
+        }
+      });
+
+      if (bestEntry) {
+        const id = bestEntry.target.id;
+        const link = document.querySelector(`.nav-link[data-section="${id}"]`);
+        if (link && link !== activeNavLink) {
+          moveHighlight(link);
+        }
+      }
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => sectionObserver.observe(section));
   </script>
 </body>
 </html>
