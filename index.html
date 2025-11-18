@@ -24,7 +24,7 @@
         <a href="#features" class="nav-link" data-section="features">Funzionalità</a>
         <a href="#how-it-works" class="nav-link" data-section="how-it-works">Come funziona</a>
         <a href="#pricing" class="nav-link" data-section="pricing">Prezzi</a>
-        <a href="#contact" class="nav-link" data-section="contact">Contattaci</a>
+        <a href="#download" class="nav-link" data-section="download">Scarica l&#39;app</a>
       </nav>
     </div>
   </header>
@@ -44,13 +44,33 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Richiedi una demo</a>
+            <a href="#download" class="btn btn-primary">Richiedi una demo</a>
             <a href="#features" class="btn btn-outline">Scopri le funzionalità</a>
           </div>
 
           <p class="hero-note">
             Pensata per B&amp;B, case vacanza e piccoli property manager.
           </p>
+
+          <!-- BADGE STORE - HERO -->
+          <div class="store-badges hero-badges">
+            <a href="#" class="store-chip store-chip-apple">
+              <span class="store-icon apple-icon"></span>
+              <span class="store-text">
+                <span class="store-small">Disponibile su</span>
+                <span class="store-main">App Store</span>
+              </span>
+            </a>
+            <a href="#" class="store-chip store-chip-google">
+              <span class="store-icon play-icon">
+                <span class="play-triangle"></span>
+              </span>
+              <span class="store-text">
+                <span class="store-small">Disponibile su</span>
+                <span class="store-main">Google Play</span>
+              </span>
+            </a>
+          </div>
         </div>
 
         <!-- MOCKUP APP -->
@@ -216,47 +236,33 @@
       </div>
     </section>
 
-    <!-- CONTATTI -->
-    <section id="contact" class="section section-alt">
-      <div class="container section-inner" data-reveal>
-        <h2>Parliamo di Rentigo per le tue strutture</h2>
+    <!-- SCARICA L'APP (in fondo) -->
+    <section id="download" class="section section-download">
+      <div class="container section-inner download-inner" data-reveal>
+        <h2>Scarica l&#39;app Rentigo</h2>
         <p class="section-subtitle">
-          Raccontaci come gestisci oggi i tuoi affitti brevi: ti aiuteremo a capire se Rentigo è
-          la soluzione giusta per te.
+          Presto disponibile su App Store e Google Play. Aggiungi Rentigo alla tua routine
+          quotidiana di lavoro e dimentica i fogli di calcolo.
         </p>
 
-        <form class="contact-form">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="name">Nome e cognome</label>
-              <input id="name" type="text" placeholder="Es. Marco Rossi" />
-            </div>
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="esempio@email.com" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label for="properties">Numero di strutture</label>
-              <input id="properties" type="text" placeholder="Es. 3 appartamenti, 1 B&amp;B" />
-            </div>
-            <div class="form-field">
-              <label for="city">Città</label>
-              <input id="city" type="text" placeholder="Es. Catania" />
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="message">Messaggio</label>
-            <textarea id="message" rows="4" placeholder="Raccontaci come lavori oggi e cosa ti crea più fatica."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-full">
-            Invia richiesta di demo
-          </button>
-        </form>
+        <div class="store-badges store-badges-center">
+          <a href="#" class="store-chip store-chip-apple">
+            <span class="store-icon apple-icon"></span>
+            <span class="store-text">
+              <span class="store-small">Disponibile su</span>
+              <span class="store-main">App Store</span>
+            </span>
+          </a>
+          <a href="#" class="store-chip store-chip-google">
+            <span class="store-icon play-icon">
+              <span class="play-triangle"></span>
+            </span>
+            <span class="store-text">
+              <span class="store-small">Disponibile su</span>
+              <span class="store-main">Google Play</span>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -320,7 +326,7 @@
     });
 
     // evidenziazione automatica in base alla sezione visibile
-    const sectionIds = ['features', 'how-it-works', 'pricing', 'contact'];
+    const sectionIds = ['features', 'how-it-works', 'pricing', 'download'];
     const sections = sectionIds
       .map(id => document.getElementById(id))
       .filter(Boolean);
