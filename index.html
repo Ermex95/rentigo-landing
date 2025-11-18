@@ -205,3 +205,92 @@
           <div class="price-card highlight">
             <h3>Pro</h3>
             <p class="price">Da definire</p>
+            <p class="price-note">Per property manager con più strutture.</p>
+            <ul>
+              <li>Tutte le funzioni Starter</li>
+              <li>Automazioni avanzate</li>
+              <li>Supporto prioritario</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contact" class="section section-alt">
+      <div class="container section-inner" data-reveal>
+        <h2>Parliamo di Rentigo per le tue strutture</h2>
+        <p class="section-subtitle">
+          Raccontaci come gestisci oggi i tuoi affitti brevi: ti aiuteremo a capire se Rentigo è
+          la soluzione giusta per te.
+        </p>
+
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Nome e cognome</label>
+              <input id="name" type="text" placeholder="Es. Marco Rossi" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="esempio@email.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="properties">Numero di strutture</label>
+              <input id="properties" type="text" placeholder="Es. 3 appartamenti, 1 B&amp;B" />
+            </div>
+            <div class="form-field">
+              <label for="city">Città</label>
+              <input id="city" type="text" placeholder="Es. Catania" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Messaggio</label>
+            <textarea id="message" rows="4" placeholder="Raccontaci come lavori oggi e cosa ti crea più fatica."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Invia richiesta di demo
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Rentigo. Tutti i diritti riservati.</span>
+      <span class="footer-small">Landing page in bozza — contenuti e prezzi da definire.</span>
+    </div>
+  </footer>
+
+  <script>
+    // anno nel footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // animazione on scroll (fade + slide up)
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach((el) => observer.observe(el));
+
+    // parallax semplice sull'onda verde dell'hero
+    const heroBg = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY * -0.08; // spostamento leggero
+      heroBg.style.setProperty('--hero-offset', offset + 'px');
+    }, { passive: true });
+  </script>
+</body>
+</html>
