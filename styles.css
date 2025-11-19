@@ -234,88 +234,41 @@ main {
   width: 100%;
 }
 
-/* BADGE STORE */
+/* BADGE STORE (con immagini ufficiali) */
 
 .store-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .hero-badges {
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
 .store-badges-center {
   justify-content: center;
 }
 
-.store-chip {
+.store-badge-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: #111111;
-  color: #ffffff;
   text-decoration: none;
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-.store-chip:hover {
+.store-badge-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.35);
+  border-radius: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.store-badge-img:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.45);
-  background: #000000;
-}
-
-.store-icon {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  background: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* icona "apple" stilizzata */
-.apple-icon::before {
-  content: "";
-  width: 14px;
-  height: 16px;
-  border-radius: 50% 50% 40% 40%;
-  background: #111827;
-}
-
-/* icona "play" stilizzata */
-.play-icon {
-  background: linear-gradient(135deg, #34d399, #22c55e, #16a34a);
-}
-
-.play-triangle {
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 12px solid #ffffff;
-}
-
-.store-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.store-small {
-  font-size: 0.62rem;
-  opacity: 0.8;
-}
-
-.store-main {
-  font-size: 0.82rem;
-  font-weight: 600;
 }
 
 /* MOCKUP APP */
@@ -782,6 +735,19 @@ main {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .store-badges-center {
+    justify-content: flex-start;
+  }
+
+  .download-inner {
+    text-align: left;
+  }
+
+  .download-inner .section-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 720px) {
@@ -795,17 +761,5 @@ main {
 
   .section {
     padding: 72px 0 80px;
-  }
-
-  .store-badges-center {
-    justify-content: flex-start;
-  }
-
-  .download-inner {
-    text-align: left;
-  }
-
-  .download-inner .section-subtitle {
-    margin-left: 0;
   }
 }
