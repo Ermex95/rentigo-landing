@@ -1,11 +1,12 @@
+
 import React from 'react';
-import { Star, Bell, TrendingUp, Calendar, Users, Check, MessageSquare } from 'lucide-react';
+import { Star, Bell, TrendingUp, Users, Check, MessageSquare, Calendar } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
     <section id="home" className="pt-40 pb-0 px-4 md:px-8 relative overflow-hidden min-h-screen flex flex-col items-center justify-start">
       
-      {/* Background Atmosphere (Updated to new #67ba52) */}
+      {/* Background Atmosphere */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
          <div className="absolute top-[-20%] left-[20%] w-[800px] h-[800px] bg-[#67ba52]/10 rounded-full blur-[120px] animate-blob opacity-60 mix-blend-multiply"></div>
          <div className="absolute top-[-10%] right-[10%] w-[600px] h-[600px] bg-[#86efac]/20 rounded-full blur-[100px] animate-blob animation-delay-2000 opacity-60 mix-blend-multiply"></div>
@@ -64,7 +65,7 @@ const Hero: React.FC = () => {
           </button>
         </div>
 
-        {/* PHONES CLUSTER - 3 PHONES VISIBLE */}
+        {/* PHONES CLUSTER */}
         <div className="relative w-full max-w-7xl mx-auto h-[500px] md:h-[700px] flex justify-center perspective-1000">
             
             {/* Left Phone (Dark - Chat) - Static, with Frame */}
