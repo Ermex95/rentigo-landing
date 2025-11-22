@@ -1,5 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 
+// Fix critico per l'errore di build su GitHub (TS2580)
+declare const process: {
+  env: {
+    API_KEY?: string;
+  }
+};
+
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getRentigoAdvice = async (userQuery: string): Promise<string> => {
