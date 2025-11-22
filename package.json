@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": ".", 
+  "homepage": "https://ermex95.github.io/rentigo-landing/", 
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
