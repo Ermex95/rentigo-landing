@@ -1,5 +1,6 @@
-// This file has been cleared to remove AI dependencies.
-// The AI Chat functionality has been removed from the project.
+
+// Questo file è stato svuotato perché l'AI è stata rimossa.
+// Mantengo l'export vuoto per evitare errori di importazione se qualche file vecchio lo cerca ancora.
 export const getRentigoAdvice = async () => {
     return "";
 };
