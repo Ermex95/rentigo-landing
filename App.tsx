@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Footer from './components/Footer';
-import AIChatModal from './components/AIChatModal';
 
 const App: React.FC = () => {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-white text-brandGray selection:bg-[#67ba52]/20 selection:text-brandGray overflow-x-hidden font-sans">
       <Navbar />
       <main>
-        <Hero onOpenChat={() => setIsChatOpen(true)} />
+        <Hero />
         <Features />
         
         {/* Rounded CTA Section - Widened */}
@@ -46,7 +43,6 @@ const App: React.FC = () => {
         </section>
       </main>
       <Footer />
-      <AIChatModal isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };
