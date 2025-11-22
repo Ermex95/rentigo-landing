@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
     plugins: [react()],
-    base: './', // Fondamentale per GitHub Pages
+    base: '/rentigo-landing/', // Fondamentale: deve corrispondere al nome del tuo repository
     define: {
       // FIX CRITICO: Impedisce il crash "process is not defined" nel browser
       'process.env': {}, 
