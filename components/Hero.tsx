@@ -1,11 +1,7 @@
 import React from 'react';
 import { Star, Bell, TrendingUp, Calendar, Users, Check, MessageSquare } from 'lucide-react';
 
-interface HeroProps {
-  onOpenChat: () => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ onOpenChat }) => {
+const Hero: React.FC = () => {
   return (
     <section id="home" className="pt-40 pb-0 px-4 md:px-8 relative overflow-hidden min-h-screen flex flex-col items-center justify-start">
       
